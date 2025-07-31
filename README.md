@@ -35,7 +35,6 @@ python main.py
 - `utils/` — Utility modules (config, logging, algorithms)
 - `trained_models/` — Trained model weights
 - `logs/` — Run-time logs
-- `sample_data/` — Sample scenarios for quick testing
 
 ## License
 MIT License
