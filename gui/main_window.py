@@ -2,7 +2,7 @@
 Main GUI Window for Deadlock Predictor & Simulator.
 Provides the primary interface for user input, prediction, and simulation controls.
 """
-git
+
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 import threading
