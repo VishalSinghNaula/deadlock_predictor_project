@@ -1,0 +1,7 @@
+
+tensorflow>=2.12; platform_system!='Windows'
+scikit-learn>=1.3.0
+numpy>=1.23.0
+pandas>=1.5.0
+matplotlib>=3.8.0
+networkx>=3.2.1

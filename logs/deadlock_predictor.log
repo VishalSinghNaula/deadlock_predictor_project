@@ -1,0 +1,763 @@
+2025-07-30 23:25:37 - deadlock_predictor - INFO - Logging system initialized
+2025-07-30 23:25:37 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-30 23:26:06 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-30 23:26:06 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-30 23:26:07 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-30 23:26:07 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-30 23:26:07 - __main__ - INFO - GUI initialized successfully
+2025-07-30 23:27:03 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-30 23:27:03 - models.lstm_predictor - INFO - Mock prediction: 0.694 for 4 threads
+2025-07-30 23:27:03 - gui.main_window - INFO - Prediction complete: 69.4% probability
+2025-07-30 23:27:03 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:27:08 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:27:08 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-30 23:27:08 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:27:08 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-30 23:27:08 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:27:08 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:27:08 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:27:08 - gui.main_window - INFO - Thread T3 started
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 acquired R0[MUTEX]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 released R0[MUTEX]
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 waiting for R2[FILE] (held by T0)
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R2[FILE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 woken up
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 waiting for R4[MEMORY] (held by T2)
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 acquired R3[NETWORK]
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 released R3[NETWORK]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 waiting for R0[MUTEX] (held by T0)
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 woken up
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 released R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T3 waiting for R0[MUTEX] (held by T0)
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 woken up
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 released R4[MEMORY]
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 woken up
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 released R4[MEMORY]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-30 23:27:08 - gui.main_window - INFO - T1 waiting for R0[MUTEX] (held by T2)
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T2)
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 released R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 woken up
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 released R4[MEMORY]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-30 23:27:08 - gui.main_window - INFO - T0 waiting for R0[MUTEX] (held by T2)
+2025-07-30 23:27:08 - gui.main_window - INFO - T2 waiting for R2[FILE] (held by T1)
+2025-07-30 23:27:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 1]
+2025-07-30 23:27:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 1]
+2025-07-30 23:27:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 1]
+2025-07-30 23:27:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 1]
+2025-07-30 23:27:08 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-30 23:27:08 - gui.main_window - ERROR - Deadlock occurred at time 0.46s
+2025-07-30 23:27:08 - gui.main_window - ERROR - Threads involved: T2, T1
+2025-07-30 23:27:21 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-30 23:27:21 - models.lstm_predictor - INFO - Mock prediction: 0.467 for 4 threads
+2025-07-30 23:27:21 - gui.main_window - INFO - Prediction complete: 46.7% probability
+2025-07-30 23:27:21 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:27:30 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:27:30 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-30 23:27:30 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:27:30 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T0 completed in 0.01s
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T1 completed in 0.01s
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T3 started
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T2 completed in 0.01s
+2025-07-30 23:27:30 - gui.main_window - INFO - T3 acquired R3[NETWORK]
+2025-07-30 23:27:30 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-30 23:27:30 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-30 23:27:46 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-30 23:27:46 - models.lstm_predictor - INFO - Mock prediction: 0.427 for 4 threads
+2025-07-30 23:27:46 - gui.main_window - INFO - Prediction complete: 42.7% probability
+2025-07-30 23:27:46 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:27:48 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:27:48 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-30 23:27:48 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:27:48 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T1 completed in 0.01s
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T3 started
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-30 23:27:48 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:27:48 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-30 23:27:48 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-30 23:27:48 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:27:48 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-30 23:27:48 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-30 23:27:48 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T2)
+2025-07-30 23:27:48 - gui.main_window - INFO - T2 released R4[MEMORY]
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T2 completed in 0.02s
+2025-07-30 23:27:48 - gui.main_window - INFO - Thread T0 completed in 0.03s
+2025-07-30 23:27:48 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-30 23:28:00 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-30 23:28:00 - models.lstm_predictor - INFO - Mock prediction: 0.454 for 4 threads
+2025-07-30 23:28:00 - gui.main_window - INFO - Prediction complete: 45.4% probability
+2025-07-30 23:28:00 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:28:02 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:28:02 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-30 23:28:02 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:28:02 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-30 23:28:02 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:28:02 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:28:02 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:28:02 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-30 23:28:03 - gui.main_window - INFO - T1 acquired R0[MUTEX]
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T3 started
+2025-07-30 23:28:03 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-30 23:28:03 - gui.main_window - INFO - T2 released R3[NETWORK]
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T2 completed in 0.00s
+2025-07-30 23:28:03 - gui.main_window - INFO - Thread T3 completed in 0.00s
+2025-07-30 23:28:03 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-30 23:31:18 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-30 23:32:07 - deadlock_predictor - INFO - Logging system initialized
+2025-07-30 23:32:07 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-30 23:32:07 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-30 23:32:07 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-30 23:32:07 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-30 23:32:07 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-30 23:32:07 - __main__ - INFO - GUI initialized successfully
+2025-07-30 23:33:08 - gui.main_window - ERROR - Invalid input: invalid literal for int() with base 10: '0.1'
+2025-07-30 23:33:16 - gui.main_window - INFO - Starting prediction for 3 threads...
+2025-07-30 23:33:16 - models.lstm_predictor - INFO - Mock prediction: 0.240 for 3 threads
+2025-07-30 23:33:16 - gui.main_window - INFO - Prediction complete: 24.0% probability
+2025-07-30 23:33:16 - gui.main_window - INFO - Risk Level: LOW
+2025-07-30 23:33:18 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:33:18 - models.deadlock_simulator - INFO - Created 3 threads
+2025-07-30 23:33:18 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:33:18 - gui.main_window - INFO - Starting simulation with 3 threads
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:33:18 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:33:18 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:33:18 - gui.main_window - INFO - T2 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-30 23:33:18 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:33:18 - gui.main_window - INFO - T2 woken up
+2025-07-30 23:33:18 - gui.main_window - INFO - T0 acquired R4[MEMORY]
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T0 completed in 0.02s
+2025-07-30 23:33:18 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:33:18 - gui.main_window - INFO - T2 released R1[SEMAPHORE]
+2025-07-30 23:33:18 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-30 23:33:18 - gui.main_window - INFO - Thread T2 completed in 0.02s
+2025-07-30 23:33:18 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-30 23:33:27 - gui.main_window - INFO - Starting prediction for 3 threads...
+2025-07-30 23:33:27 - models.lstm_predictor - INFO - Mock prediction: 0.580 for 3 threads
+2025-07-30 23:33:27 - gui.main_window - INFO - Prediction complete: 58.0% probability
+2025-07-30 23:33:27 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:33:29 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:33:29 - models.deadlock_simulator - INFO - Created 3 threads
+2025-07-30 23:33:29 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:33:29 - gui.main_window - INFO - Starting simulation with 3 threads
+2025-07-30 23:33:29 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:33:29 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:33:29 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-30 23:33:29 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 acquired R4[MEMORY]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 released R3[NETWORK]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 waiting for R3[NETWORK] (held by T2)
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 released R3[NETWORK]
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 woken up
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 released R4[MEMORY]
+2025-07-30 23:33:29 - gui.main_window - INFO - T2 waiting for R3[NETWORK] (held by T0)
+2025-07-30 23:33:29 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T2)
+2025-07-30 23:33:29 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:29 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:29 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-30 23:33:29 - gui.main_window - ERROR - Deadlock occurred at time 0.11s
+2025-07-30 23:33:29 - gui.main_window - ERROR - Threads involved: T0, T2
+2025-07-30 23:33:40 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:33:40 - models.deadlock_simulator - INFO - Created 3 threads
+2025-07-30 23:33:40 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:33:40 - gui.main_window - INFO - Starting simulation with 3 threads
+2025-07-30 23:33:40 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:33:40 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:33:40 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:33:40 - gui.main_window - INFO - Thread T1 completed in 0.01s
+2025-07-30 23:33:40 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:33:40 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:33:40 - gui.main_window - INFO - T2 acquired R0[MUTEX]
+2025-07-30 23:33:40 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-30 23:33:40 - gui.main_window - INFO - T2 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-30 23:33:40 - gui.main_window - INFO - T0 waiting for R4[MEMORY] (held by T2)
+2025-07-30 23:33:40 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:40 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:40 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-30 23:33:40 - gui.main_window - ERROR - Deadlock occurred at time 0.11s
+2025-07-30 23:33:40 - gui.main_window - ERROR - Threads involved: T0, T2
+2025-07-30 23:33:42 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-30 23:33:42 - models.deadlock_simulator - INFO - Created 3 threads
+2025-07-30 23:33:42 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-30 23:33:42 - gui.main_window - INFO - Starting simulation with 3 threads
+2025-07-30 23:33:42 - gui.main_window - INFO - Thread T0 started
+2025-07-30 23:33:42 - gui.main_window - INFO - Thread T1 started
+2025-07-30 23:33:42 - gui.main_window - INFO - Thread T2 started
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:33:42 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-30 23:33:42 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-30 23:33:42 - gui.main_window - INFO - T2 waiting for R0[MUTEX] (held by T0)
+2025-07-30 23:33:42 - gui.main_window - INFO - T0 waiting for R4[MEMORY] (held by T2)
+2025-07-30 23:33:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 2]
+2025-07-30 23:33:42 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-30 23:33:42 - gui.main_window - ERROR - Deadlock occurred at time 0.10s
+2025-07-30 23:33:42 - gui.main_window - ERROR - Threads involved: T0, T2
+2025-07-30 23:33:44 - gui.main_window - INFO - Starting prediction for 3 threads...
+2025-07-30 23:33:44 - models.lstm_predictor - INFO - Mock prediction: 0.580 for 3 threads
+2025-07-30 23:33:44 - gui.main_window - INFO - Prediction complete: 58.0% probability
+2025-07-30 23:33:44 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-30 23:38:23 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 19:22:38 - deadlock_predictor - INFO - Logging system initialized
+2025-07-31 19:22:38 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-31 19:22:40 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-31 19:22:40 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-31 19:22:40 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-31 19:22:40 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-31 19:22:40 - __main__ - INFO - GUI initialized successfully
+2025-07-31 19:24:48 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:24:48 - models.lstm_predictor - INFO - Mock prediction: 0.694 for 4 threads
+2025-07-31 19:24:48 - gui.main_window - INFO - Prediction complete: 69.4% probability
+2025-07-31 19:24:48 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:24:50 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:24:50 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:24:50 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:24:50 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:24:50 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:24:50 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:24:50 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:24:50 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:24:50 - gui.main_window - INFO - T3 acquired R2[FILE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T3 released R2[FILE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T1 acquired R2[FILE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:24:50 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T2 released R1[SEMAPHORE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-31 19:24:50 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-31 19:24:50 - gui.main_window - INFO - T1 released R2[FILE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T2 waiting for R0[MUTEX] (held by T0)
+2025-07-31 19:24:50 - gui.main_window - INFO - T1 waiting for R0[MUTEX] (held by T0)
+2025-07-31 19:24:50 - gui.main_window - INFO - T3 acquired R2[FILE]
+2025-07-31 19:24:50 - gui.main_window - INFO - T3 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:24:50 - gui.main_window - INFO - T0 waiting for R2[FILE] (held by T3)
+2025-07-31 19:24:50 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 3]
+2025-07-31 19:24:50 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 3]
+2025-07-31 19:24:50 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 3]
+2025-07-31 19:24:50 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 3]
+2025-07-31 19:24:50 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 19:24:50 - gui.main_window - ERROR - Deadlock occurred at time 0.11s
+2025-07-31 19:24:50 - gui.main_window - ERROR - Threads involved: T0, T3
+2025-07-31 19:34:00 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:34:00 - models.lstm_predictor - INFO - Mock prediction: 0.467 for 4 threads
+2025-07-31 19:34:00 - gui.main_window - INFO - Prediction complete: 46.7% probability
+2025-07-31 19:34:00 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:34:04 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:34:04 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:34:04 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:34:04 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:34:04 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T2 completed in 0.01s
+2025-07-31 19:34:04 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-31 19:34:04 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:34:12 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:34:12 - models.lstm_predictor - INFO - Mock prediction: 0.454 for 4 threads
+2025-07-31 19:34:13 - gui.main_window - INFO - Prediction complete: 45.4% probability
+2025-07-31 19:34:13 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:34:15 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:34:15 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:34:15 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:34:15 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T2 completed in 0.00s
+2025-07-31 19:34:15 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-31 19:34:15 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:34:30 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:34:30 - models.lstm_predictor - INFO - Mock prediction: 0.316 for 4 threads
+2025-07-31 19:34:30 - gui.main_window - INFO - Prediction complete: 31.6% probability
+2025-07-31 19:34:30 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:34:32 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:34:32 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:34:32 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:34:32 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:34:32 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 19:34:32 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:34:32 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:34:32 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:34:32 - gui.main_window - INFO - T3 acquired R4[MEMORY]
+2025-07-31 19:34:32 - gui.main_window - INFO - T3 released R4[MEMORY]
+2025-07-31 19:34:32 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-31 19:34:32 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:34:32 - gui.main_window - INFO - T2 released R3[NETWORK]
+2025-07-31 19:34:32 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 19:34:32 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:34:32 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T1 completed in 0.01s
+2025-07-31 19:34:32 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T0 completed in 0.02s
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T2 completed in 0.01s
+2025-07-31 19:34:32 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-31 19:34:32 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:34:40 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:34:40 - models.lstm_predictor - INFO - Mock prediction: 0.467 for 4 threads
+2025-07-31 19:34:40 - gui.main_window - INFO - Prediction complete: 46.7% probability
+2025-07-31 19:34:40 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:34:42 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:34:42 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:34:42 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:34:42 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:34:42 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-31 19:34:42 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-31 19:34:42 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T2 completed in 0.01s
+2025-07-31 19:34:42 - gui.main_window - INFO - Thread T3 completed in 0.01s
+2025-07-31 19:34:42 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:34:52 - gui.main_window - ERROR - Invalid input: All burst times must be positive
+2025-07-31 19:35:05 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:35:05 - models.lstm_predictor - INFO - Mock prediction: 0.427 for 4 threads
+2025-07-31 19:35:05 - gui.main_window - INFO - Prediction complete: 42.7% probability
+2025-07-31 19:35:05 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:35:07 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:35:07 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:35:07 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:35:07 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:35:07 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:35:07 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:35:07 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:35:07 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-31 19:35:07 - gui.main_window - INFO - T3 waiting for R3[NETWORK] (held by T0)
+2025-07-31 19:35:07 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 19:35:07 - gui.main_window - INFO - T2 acquired R0[MUTEX]
+2025-07-31 19:35:07 - gui.main_window - INFO - T2 released R0[MUTEX]
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T0 completed in 0.01s
+2025-07-31 19:35:07 - gui.main_window - INFO - T1 waiting for R4[MEMORY] (held by T2)
+2025-07-31 19:35:07 - gui.main_window - INFO - T2 acquired R0[MUTEX]
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T2 completed in 0.02s
+2025-07-31 19:35:07 - gui.main_window - INFO - T3 acquired R1[SEMAPHORE]
+2025-07-31 19:35:07 - gui.main_window - INFO - T3 released R3[NETWORK]
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T1 completed in 0.02s
+2025-07-31 19:35:07 - gui.main_window - INFO - T3 released R1[SEMAPHORE]
+2025-07-31 19:35:07 - gui.main_window - INFO - Thread T3 completed in 0.02s
+2025-07-31 19:35:07 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:35:14 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 19:35:14 - models.lstm_predictor - INFO - Mock prediction: 0.390 for 4 threads
+2025-07-31 19:35:14 - gui.main_window - INFO - Prediction complete: 39.0% probability
+2025-07-31 19:35:14 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:35:16 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:35:16 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 19:35:16 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:35:16 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T2 started
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T3 started
+2025-07-31 19:35:16 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:35:16 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-31 19:35:16 - gui.main_window - INFO - T3 acquired R2[FILE]
+2025-07-31 19:35:16 - gui.main_window - INFO - T1 waiting for R3[NETWORK] (held by T2)
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T2 completed in 0.00s
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T3 completed in 0.00s
+2025-07-31 19:35:16 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-31 19:35:16 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 19:36:08 - gui.main_window - INFO - Starting prediction for 2 threads...
+2025-07-31 19:36:08 - models.lstm_predictor - INFO - Mock prediction: 0.330 for 2 threads
+2025-07-31 19:36:08 - gui.main_window - INFO - Prediction complete: 33.0% probability
+2025-07-31 19:36:08 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 19:36:10 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:36:10 - models.deadlock_simulator - INFO - Created 2 threads
+2025-07-31 19:36:10 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:36:10 - gui.main_window - INFO - Starting simulation with 2 threads
+2025-07-31 19:36:10 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:36:10 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:36:10 - gui.main_window - INFO - T0 acquired R4[MEMORY]
+2025-07-31 19:36:10 - gui.main_window - INFO - T1 acquired R3[NETWORK]
+2025-07-31 19:36:10 - gui.main_window - INFO - T1 acquired R2[FILE]
+2025-07-31 19:36:10 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-31 19:36:10 - gui.main_window - INFO - T1 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-31 19:36:10 - gui.main_window - INFO - T0 waiting for R2[FILE] (held by T1)
+2025-07-31 19:36:10 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 19:36:10 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 19:36:10 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 19:36:10 - gui.main_window - ERROR - Deadlock occurred at time 0.10s
+2025-07-31 19:36:10 - gui.main_window - ERROR - Threads involved: T0, T1
+2025-07-31 19:36:25 - gui.main_window - INFO - Starting prediction for 2 threads...
+2025-07-31 19:36:25 - models.lstm_predictor - INFO - Mock prediction: 0.187 for 2 threads
+2025-07-31 19:36:25 - gui.main_window - INFO - Prediction complete: 18.7% probability
+2025-07-31 19:36:25 - gui.main_window - INFO - Risk Level: LOW
+2025-07-31 19:36:28 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:36:28 - models.deadlock_simulator - INFO - Created 2 threads
+2025-07-31 19:36:28 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:36:28 - gui.main_window - INFO - Starting simulation with 2 threads
+2025-07-31 19:36:28 - gui.main_window - INFO - Thread T0 started
+2025-07-31 19:36:28 - gui.main_window - INFO - Thread T1 started
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R0[MUTEX]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 woken up
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 waiting for R2[FILE] (held by T1)
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 woken up
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R4[MEMORY]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R0[MUTEX]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 waiting for R3[NETWORK] (held by T1)
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R4[MEMORY]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 woken up
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T1)
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 woken up
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 waiting for R1[SEMAPHORE] (held by T0)
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 woken up
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R4[MEMORY]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 acquired R1[SEMAPHORE]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 acquired R3[NETWORK]
+2025-07-31 19:36:28 - gui.main_window - INFO - T1 waiting for R2[FILE] (held by T0)
+2025-07-31 19:36:28 - gui.main_window - INFO - T0 waiting for R3[NETWORK] (held by T1)
+2025-07-31 19:36:28 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 19:36:28 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 19:36:28 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 19:36:28 - gui.main_window - ERROR - Deadlock occurred at time 0.11s
+2025-07-31 19:36:28 - gui.main_window - ERROR - Threads involved: T0, T1
+2025-07-31 19:37:07 - gui.main_window - INFO - Starting prediction for 6 threads...
+2025-07-31 19:37:07 - models.lstm_predictor - INFO - Mock prediction: 1.000 for 6 threads
+2025-07-31 19:37:07 - gui.main_window - INFO - Prediction complete: 100.0% probability
+2025-07-31 19:37:07 - gui.main_window - INFO - Risk Level: HIGH
+2025-07-31 19:37:07 - gui.main_window - WARNING - HIGH RISK detected - simulation not recommended!
+2025-07-31 19:37:09 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:37:09 - models.deadlock_simulator - INFO - Created 6 threads
+2025-07-31 19:37:09 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:39:04 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 19:39:04 - gui.main_window - WARNING - Simulation stopped by user
+2025-07-31 19:39:13 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:39:13 - models.deadlock_simulator - INFO - Created 6 threads
+2025-07-31 19:39:13 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:39:19 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 19:39:19 - gui.main_window - WARNING - Simulation stopped by user
+2025-07-31 19:39:36 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:39:36 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 19:39:36 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:39:45 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 19:39:45 - gui.main_window - WARNING - Simulation stopped by user
+2025-07-31 19:39:48 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 19:39:48 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 19:39:48 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 19:39:59 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 19:42:07 - deadlock_predictor - INFO - Logging system initialized
+2025-07-31 19:42:07 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-31 19:42:08 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-31 19:42:09 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-31 19:42:09 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-31 19:42:09 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-31 19:42:09 - __main__ - INFO - GUI initialized successfully
+2025-07-31 20:13:23 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 20:13:23 - models.lstm_predictor - INFO - Mock prediction: 0.694 for 4 threads
+2025-07-31 20:13:23 - gui.main_window - INFO - Prediction complete: 69.4% probability
+2025-07-31 20:13:23 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 20:13:25 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 20:13:25 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 20:13:25 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 20:13:25 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 20:13:25 - gui.main_window - INFO - Thread T0 started
+2025-07-31 20:13:25 - gui.main_window - INFO - Thread T1 started
+2025-07-31 20:13:25 - gui.main_window - INFO - Thread T2 started
+2025-07-31 20:13:25 - gui.main_window - INFO - T0 acquired R3[NETWORK]
+2025-07-31 20:13:25 - gui.main_window - INFO - Thread T3 started
+2025-07-31 20:13:25 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-31 20:13:25 - gui.main_window - INFO - T3 acquired R4[MEMORY]
+2025-07-31 20:13:25 - gui.main_window - INFO - T2 waiting for R4[MEMORY] (held by T3)
+2025-07-31 20:13:25 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-31 20:13:25 - gui.main_window - INFO - T3 acquired R2[FILE]
+2025-07-31 20:13:25 - gui.main_window - INFO - T3 waiting for R1[SEMAPHORE] (held by T2)
+2025-07-31 20:13:25 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-31 20:13:25 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T2)
+2025-07-31 20:13:25 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:13:25 - gui.main_window - INFO - T1 waiting for R4[MEMORY] (held by T3)
+2025-07-31 20:13:25 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:13:25 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:13:25 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:13:25 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 20:13:25 - gui.main_window - ERROR - Deadlock occurred at time 0.13s
+2025-07-31 20:13:25 - gui.main_window - ERROR - Threads involved: T2, T3
+2025-07-31 20:13:36 - gui.main_window - INFO - Starting prediction for 7 threads...
+2025-07-31 20:13:36 - models.lstm_predictor - INFO - Mock prediction: 0.905 for 7 threads
+2025-07-31 20:13:36 - gui.main_window - INFO - Prediction complete: 90.5% probability
+2025-07-31 20:13:36 - gui.main_window - INFO - Risk Level: HIGH
+2025-07-31 20:13:36 - gui.main_window - WARNING - HIGH RISK detected - simulation not recommended!
+2025-07-31 20:13:38 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 20:13:38 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 20:13:38 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 20:34:32 - models.deadlock_simulator - INFO - Simulation stopped by user
+2025-07-31 20:37:08 - deadlock_predictor - INFO - Logging system initialized
+2025-07-31 20:37:08 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-31 20:37:10 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-31 20:37:10 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-31 20:37:10 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-31 20:37:10 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-31 20:37:10 - __main__ - INFO - GUI initialized successfully
+2025-07-31 20:42:12 - gui.main_window - INFO - Starting prediction for 7 threads...
+2025-07-31 20:42:12 - models.lstm_predictor - INFO - Mock prediction: 0.905 for 7 threads
+2025-07-31 20:42:13 - gui.main_window - INFO - Prediction complete: 90.5% probability
+2025-07-31 20:42:13 - gui.main_window - INFO - Risk Level: HIGH
+2025-07-31 20:42:13 - gui.main_window - WARNING - HIGH RISK detected - simulation not recommended!
+2025-07-31 20:42:18 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 20:42:18 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 20:42:18 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 20:42:18 - gui.main_window - INFO - Starting simulation with 7 threads
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T0 started
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T1 started
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T2 started
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T3 started
+2025-07-31 20:42:18 - gui.main_window - INFO - T1 acquired R4[MEMORY]
+2025-07-31 20:42:18 - gui.main_window - INFO - T1 released R4[MEMORY]
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T4 started
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 acquired R4[MEMORY]
+2025-07-31 20:42:18 - gui.main_window - INFO - T0 waiting for R4[MEMORY] (held by T2)
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T5 started
+2025-07-31 20:42:18 - gui.main_window - INFO - T4 waiting for R3[NETWORK] (held by T2)
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 20:42:18 - gui.main_window - INFO - Thread T6 started
+2025-07-31 20:42:18 - gui.main_window - INFO - T3 acquired R0[MUTEX]
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 20:42:18 - gui.main_window - INFO - T1 waiting for R0[MUTEX] (held by T3)
+2025-07-31 20:42:18 - gui.main_window - INFO - T3 acquired R1[SEMAPHORE]
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 20:42:18 - gui.main_window - INFO - T2 waiting for R0[MUTEX] (held by T3)
+2025-07-31 20:42:18 - gui.main_window - INFO - T3 waiting for R3[NETWORK] (held by T2)
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - T5 acquired R2[FILE]
+2025-07-31 20:42:18 - gui.main_window - INFO - T5 waiting for R0[MUTEX] (held by T3)
+2025-07-31 20:42:18 - gui.main_window - INFO - T6 waiting for R3[NETWORK] (held by T2)
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 3]
+2025-07-31 20:42:18 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 20:42:18 - gui.main_window - ERROR - Deadlock occurred at time 0.14s
+2025-07-31 20:42:18 - gui.main_window - ERROR - Threads involved: T2, T3
+2025-07-31 20:42:23 - gui.main_window - INFO - Starting prediction for 7 threads...
+2025-07-31 20:42:23 - models.lstm_predictor - INFO - Mock prediction: 0.905 for 7 threads
+2025-07-31 20:42:23 - gui.main_window - INFO - Prediction complete: 90.5% probability
+2025-07-31 20:42:23 - gui.main_window - INFO - Risk Level: HIGH
+2025-07-31 20:42:23 - gui.main_window - WARNING - HIGH RISK detected - simulation not recommended!
+2025-07-31 20:57:19 - gui.main_window - INFO - Starting prediction for 7 threads...
+2025-07-31 20:57:19 - models.lstm_predictor - INFO - Mock prediction: 0.905 for 7 threads
+2025-07-31 20:57:19 - gui.main_window - INFO - Prediction complete: 90.5% probability
+2025-07-31 20:57:19 - gui.main_window - INFO - Risk Level: HIGH
+2025-07-31 20:57:19 - gui.main_window - WARNING - HIGH RISK detected - simulation not recommended!
+2025-07-31 20:57:42 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 20:57:42 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 20:57:42 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 20:57:42 - gui.main_window - INFO - Starting simulation with 7 threads
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T0 started
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T1 started
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T2 started
+2025-07-31 20:57:42 - gui.main_window - INFO - T1 acquired R0[MUTEX]
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T3 started
+2025-07-31 20:57:42 - gui.main_window - INFO - T0 waiting for R0[MUTEX] (held by T1)
+2025-07-31 20:57:42 - gui.main_window - INFO - T3 acquired R4[MEMORY]
+2025-07-31 20:57:42 - gui.main_window - INFO - T3 released R4[MEMORY]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 released R1[SEMAPHORE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T3 waiting for R0[MUTEX] (held by T1)
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 acquired R3[NETWORK]
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T4 started
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T5 started
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 20:57:42 - gui.main_window - INFO - Thread T6 started
+2025-07-31 20:57:42 - gui.main_window - INFO - T4 acquired R2[FILE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T2 waiting for R2[FILE] (held by T4)
+2025-07-31 20:57:42 - gui.main_window - INFO - T5 acquired R4[MEMORY]
+2025-07-31 20:57:42 - gui.main_window - INFO - T6 waiting for R0[MUTEX] (held by T1)
+2025-07-31 20:57:42 - gui.main_window - INFO - T5 acquired R1[SEMAPHORE]
+2025-07-31 20:57:42 - gui.main_window - INFO - T4 waiting for R1[SEMAPHORE] (held by T5)
+2025-07-31 20:57:42 - gui.main_window - INFO - T1 waiting for R3[NETWORK] (held by T2)
+2025-07-31 20:57:42 - gui.main_window - INFO - T5 waiting for R3[NETWORK] (held by T2)
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [2, 4, 5]
+2025-07-31 20:57:42 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 20:57:42 - gui.main_window - ERROR - Deadlock occurred at time 0.18s
+2025-07-31 20:57:42 - gui.main_window - ERROR - Threads involved: T2, T4, T5
+2025-07-31 20:57:57 - gui.main_window - INFO - Starting prediction for 7 threads...
+2025-07-31 20:57:57 - models.lstm_predictor - INFO - Mock prediction: 0.673 for 7 threads
+2025-07-31 20:57:57 - gui.main_window - INFO - Prediction complete: 67.3% probability
+2025-07-31 20:57:57 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 20:57:59 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 20:57:59 - models.deadlock_simulator - INFO - Created 7 threads
+2025-07-31 20:57:59 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 20:57:59 - gui.main_window - INFO - Starting simulation with 7 threads
+2025-07-31 20:57:59 - gui.main_window - INFO - Thread T0 started
+2025-07-31 20:57:59 - gui.main_window - INFO - Thread T1 started
+2025-07-31 20:57:59 - gui.main_window - INFO - Thread T2 started
+2025-07-31 20:57:59 - gui.main_window - INFO - T0 acquired R4[MEMORY]
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T0 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T1 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - T2 acquired R2[FILE]
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T2 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T3 started
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T4 started
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T5 started
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T3 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T4 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T6 started
+2025-07-31 20:58:00 - gui.main_window - INFO - T6 acquired R3[NETWORK]
+2025-07-31 20:58:00 - gui.main_window - INFO - T6 released R3[NETWORK]
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T6 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - Thread T5 completed in 0.00s
+2025-07-31 20:58:00 - gui.main_window - INFO - ✅ Simulation completed - No deadlock detected
+2025-07-31 21:47:27 - deadlock_predictor - INFO - Logging system initialized
+2025-07-31 21:47:27 - __main__ - INFO - Starting Deadlock Predictor & Simulator...
+2025-07-31 21:47:29 - gui.main_window - INFO - Welcome to Deadlock Predictor & Simulator
+2025-07-31 21:47:29 - gui.main_window - INFO - Enter thread configuration and click 'Predict' to analyze deadlock risk
+2025-07-31 21:47:29 - models.lstm_predictor - WARNING - Model file not found: trained_models/deadlock_lstm.h5
+2025-07-31 21:47:29 - gui.main_window - INFO - LSTM predictor initialized successfully
+2025-07-31 21:47:29 - __main__ - INFO - GUI initialized successfully
+2025-07-31 21:48:32 - gui.main_window - INFO - Starting prediction for 4 threads...
+2025-07-31 21:48:32 - models.lstm_predictor - INFO - Mock prediction: 0.694 for 4 threads
+2025-07-31 21:48:32 - gui.main_window - INFO - Prediction complete: 69.4% probability
+2025-07-31 21:48:32 - gui.main_window - INFO - Risk Level: MEDIUM
+2025-07-31 21:49:08 - gui.main_window - INFO - Starting deadlock simulation...
+2025-07-31 21:49:08 - models.deadlock_simulator - INFO - Created 4 threads
+2025-07-31 21:49:08 - models.deadlock_simulator - INFO - Created 5 resources
+2025-07-31 21:49:08 - gui.main_window - INFO - Starting simulation with 4 threads
+2025-07-31 21:49:08 - gui.main_window - INFO - Thread T0 started
+2025-07-31 21:49:08 - gui.main_window - INFO - Thread T1 started
+2025-07-31 21:49:08 - gui.main_window - INFO - Thread T2 started
+2025-07-31 21:49:08 - gui.main_window - INFO - Thread T3 started
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 acquired R2[FILE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 waiting for R2[FILE] (held by T0)
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 acquired R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 released R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 acquired R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R3[NETWORK]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 released R1[SEMAPHORE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 released R2[FILE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 woken up
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 acquired R4[MEMORY]
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 released R2[FILE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 released R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 released R3[NETWORK]
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 released R4[MEMORY]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R4[MEMORY]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 acquired R1[SEMAPHORE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 released R1[SEMAPHORE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 acquired R2[FILE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 waiting for R4[MEMORY] (held by T1)
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 waiting for R0[MUTEX] (held by T1)
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 released R0[MUTEX]
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 woken up
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R1[SEMAPHORE]
+2025-07-31 21:49:08 - gui.main_window - INFO - T3 waiting for R4[MEMORY] (held by T1)
+2025-07-31 21:49:08 - gui.main_window - INFO - T2 waiting for R0[MUTEX] (held by T3)
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 acquired R3[NETWORK]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 released R3[NETWORK]
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 released R4[MEMORY]
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 woken up
+2025-07-31 21:49:08 - gui.main_window - INFO - T1 waiting for R4[MEMORY] (held by T0)
+2025-07-31 21:49:08 - gui.main_window - INFO - T0 waiting for R1[SEMAPHORE] (held by T1)
+2025-07-31 21:49:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 21:49:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 21:49:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 21:49:08 - gui.main_window - INFO - 🚨 DEADLOCK DETECTED involving threads: [0, 1]
+2025-07-31 21:49:08 - gui.main_window - ERROR - 🚨 DEADLOCK DETECTED!
+2025-07-31 21:49:08 - gui.main_window - ERROR - Deadlock occurred at time 0.12s
+2025-07-31 21:49:08 - gui.main_window - ERROR - Threads involved: T0, T1
+2025-07-31 22:01:22 - models.deadlock_simulator - INFO - Simulation stopped by user
